@@ -18,4 +18,9 @@
 제시된 프로젝트에서 발생하는 `문제들을 모두 서술`하고 올바르게 동작하도록 `소스코드를 개선`하시오.
 
 ## 답안
-- 
+- 메인씬 Start버튼 기능 동작안됨 = UI 오브젝트와 상호작용할 EventSystem 추가
+  
+- GameManager 중복 생성 SingletonInit 에서 이미 static 인스턴스가 있다면 해당 오브젝트를 삭제한다.
+
+- 타임스케일이 0임에도 회전하는 오브젝트 = Update 를 통해 회전중이며 솔루션은
+https://docs.unity3d.com/ScriptReference/Time-timeScale.html 의 자료를 확인하여 Update를 FixedUpdate로 수정
