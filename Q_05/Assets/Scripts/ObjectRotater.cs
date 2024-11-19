@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObjectRotater : MonoBehaviour
 {
-    private void Update()
+    // 타임스케일의 영향을 받기 위해 FixedUpdate
+    private void FixedUpdate()
     {
         transform.Rotate(Vector3.up * GameManager.Intance.Score);
     }
