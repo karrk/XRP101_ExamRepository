@@ -2,13 +2,7 @@
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
-<<<<<<< HEAD
         "**/.gitmodules": true,
-=======
-        "**/.vs": true,
-        "**/.gitmodules": true,
-        "**/.vsconfig": true,
->>>>>>> Q2
         "**/*.booproj": true,
         "**/*.pidb": true,
         "**/*.suo": true,
@@ -53,16 +47,9 @@
         "library/": true,
         "obj/": true,
         "Obj/": true,
-<<<<<<< HEAD
         "ProjectSettings/": true,
-=======
-        "Logs/": true,
-        "logs/": true,
-        "ProjectSettings/": true,
-        "UserSettings/": true,
->>>>>>> Q2
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Q_01.sln"
+    "dotnet.defaultSolution": "Q_02.sln"
 }
