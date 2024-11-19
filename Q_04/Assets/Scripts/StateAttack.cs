@@ -8,10 +8,10 @@ public class StateAttack : PlayerState
 {
     private float _delay = 2;
     private WaitForSeconds _wait;
-    
+
     public StateAttack(PlayerController controller) : base(controller)
     {
-        
+
     }
 
     public override void Init()
@@ -30,10 +30,10 @@ public class StateAttack : PlayerState
         Debug.Log("Attack On Update");
     }
 
-    public override void Exit()
-    {
-        Machine.ChangeState(StateType.Idle);
-    }
+    // public override void Exit()
+    // {
+    //     Machine.ChangeState(StateType.Idle);
+    // }
 
     private void Attack()
     {
@@ -45,8 +45,13 @@ public class StateAttack : PlayerState
         IDamagable damagable;
         foreach (Collider col in cols)
         {
-            damagable = col.GetComponent<IDamagable>();
-            damagable.TakeHit(Controller.AttackValue);
+            // damagable = col.GetComponent<IDamagable>();
+            // damagable.TakeHit(Controller.AttackValue);
+
+            if (col.TryGetComponent<IDamagable>(out damagable))
+            {
+                damagable.TakeHit(Controller.AttackValue);
+            }
         }
     }
 
@@ -55,7 +60,10 @@ public class StateAttack : PlayerState
         yield return _wait;
 
         Attack();
-        Exit();
+
+        //Exit(); 무한 반복
+
+        Machine.ChangeState(StateType.Idle);
     }
 
 }

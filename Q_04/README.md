@@ -18,4 +18,8 @@
 제시된 프로젝트에서 발생하는 `문제들을 모두 서술`하고 올바르게 동작하도록 `소스코드를 개선`하시오.
 
 ## 답안
-- 
+- AttackState 의 Attack 내 Getcomponent IDamagable 은 해당 인터페이스를 상속받지 않는 컴포넌트라면 Null Reference가 발생된다.
+TryGetcomponent 를 사용해 이러한 문제를 해결할 수 있다.
+
+- Attack 에서 행위를 종료할때 Exit 를 직접 호출하고 있다.
+상태 전환시(ChangeState 메서드) 또한 Exit 를 호출하고 있으므로 서로 계속 Exit 작동시키므로 StackOverflow 가 발생된다. StateAttack 에서 Exit를 직접 호출하지 않고 원하는 종료시점에 상태를 Idle로 전환시켜주면 된다.
