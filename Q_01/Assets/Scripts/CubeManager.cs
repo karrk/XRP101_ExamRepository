@@ -9,14 +9,16 @@ public class CubeManager : MonoBehaviour
     private CubeController _cubeController;
     private Vector3 _cubeSetPoint;
 
+
+    // 생명주기 순서
     private void Awake()
     {
-        SetCubePosition(3, 0, 3);
+        CreateCube();
     }
 
     private void Start()
     {
-        CreateCube();
+        SetCubePosition(3, 0, 3);
     }
 
     private void SetCubePosition(float x, float y, float z)
@@ -24,13 +26,18 @@ public class CubeManager : MonoBehaviour
         _cubeSetPoint.x = x;
         _cubeSetPoint.y = y;
         _cubeSetPoint.z = z;
+
+        _cubeController.SetPoint = _cubeSetPoint;
         _cubeController.SetPosition();
     }
 
     private void CreateCube()
     {
         GameObject cube = Instantiate(_cubePrefab);
+
         _cubeController = cube.GetComponent<CubeController>();
-        _cubeSetPoint = _cubeController.SetPoint;
+
+        // v.zero = v.zero
+        //_cubeSetPoint = _cubeController.SetPoint;
     }
 }
