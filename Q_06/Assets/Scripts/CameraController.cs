@@ -24,9 +24,14 @@ public class CameraController : MonoBehaviour
     {
         if (!_hasFollowTarget) return;
 
-        _followTarget.SetPositionAndRotation(
-            transform.position,
-            transform.rotation
-            );
+        transform.forward = _followTarget.forward;
+
+        // muzzle 의 좌표와 회전을 수정한다..?
+        // _followTarget.SetPositionAndRotation(
+        //     transform.position,
+        //     transform.rotation
+        //     );
+
+
     }
 }
